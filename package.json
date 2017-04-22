@@ -20,23 +20,23 @@
     },
     "devDependencies": {
         "eslint":                         "~3.19.0",
-        "eslint-config-standard":         "~10.2.0",
+        "eslint-config-standard":         "~10.2.1",
         "eslint-plugin-standard":         "~3.0.1",
         "eslint-plugin-promise":          "~3.5.0",
         "eslint-plugin-import":           "~2.2.0",
         "eslint-plugin-node":             "~4.2.2",
-        "babel-eslint":                   "~7.2.1"
+        "babel-eslint":                   "~7.2.3"
     },
     "dependencies" : {
         "co":                              "~4.6.0",
         "loader-utils":                    "~1.1.0",
         "nunjucks":                        "~3.0.0",
-        "inline-assets":                   "~1.1.4",
+        "inline-assets":                   "~1.1.5",
         "vue-template-compiler":           "~2.2.6",
         "vue-template-validator":          "~1.1.5",
         "parse5":                          "~3.0.2",
         "posthtml":                        "~0.9.2",
-        "style-scope":                     "~0.9.0",
+        "style-scope":                     "~0.9.1",
         "posthtml-block":                  "~1.0.1",
         "posthtml-alt-always":             "~1.0.1",
         "posthtml-md":                     "~1.1.0",
