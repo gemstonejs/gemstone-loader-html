@@ -86,7 +86,7 @@ module.exports = function (content) {
 
         done(null, result)
     }.bind(this)).catch((err) => {
-        this.emitError("gemstone-webpack-loader-html: ERROR: " + err)
+        this.emitError("gemstone-loader-html: ERROR: " + err)
     })
 }
 
