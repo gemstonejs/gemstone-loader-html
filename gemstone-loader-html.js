@@ -60,13 +60,13 @@ module.exports = function (content) {
         /*  validate HTML template for Vue  */
         var warnings = vueValidator(result)
         if (warnings.length > 0)
-            this.emitWarning("gemstone-webpack-loader-html: Vue [template-validator]: " +
+            this.emitWarning("gemstone-loader-html: Vue [template-validator]: " +
                 `WARNING:\n${warnings.join("\n")}`)
 
         /*  compile HTML template into a Vue rendering object  */
         let renderer = vueCompiler.compile(result)
         if (renderer.errors && renderer.errors.length > 0) {
-            this.emitError("gemstone-webpack-loader-html: Vue [template-compiler]: " +
+            this.emitError("gemstone-loader-html: Vue [template-compiler]: " +
                 `ERROR: ${renderer.errors.join("\n")}`)
             renderer = {
                 render: "throw new Error(\"Vue template compilation already failed under build-time\")",
