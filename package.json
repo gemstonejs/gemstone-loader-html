@@ -44,7 +44,7 @@
         "js-beautify":                     "~1.6.12"
     },
     "engines": {
-        "node":                            ">=6.0.0"
+        "node":                            ">=7.6.0"
     },
     "scripts": {
         "prepublish": "eslint --config eslint.yaml gemstone-loader-html.js"
