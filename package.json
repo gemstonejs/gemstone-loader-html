@@ -41,6 +41,7 @@
         "posthtml-alt-always":             "~1.0.1",
         "posthtml-md":                     "~1.1.0",
         "posthtml-lorem":                  "~1.0.0",
+        "postcss":                         "~6.0.14",
         "babel-runtime":                   "~6.26.0",
         "js-beautify":                     "~1.7.5"
     },
