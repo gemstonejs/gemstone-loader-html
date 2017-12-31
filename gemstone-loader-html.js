@@ -19,9 +19,8 @@ const jsBeautify       = require("js-beautify").js_beautify
 
 /*  the exported Webpack loader function  */
 module.exports = function (content) {
+    const done = this.async()
     co(function * () {
-        const done = this.async()
-
         /*  determine Webpack loader query parameters  */
         const options = Object.assign({}, {
             scope: "none"
@@ -87,6 +86,7 @@ module.exports = function (content) {
         done(null, result)
     }.bind(this)).catch((err) => {
         this.emitError("gemstone-loader-html: ERROR: " + err)
+        done(err)
     })
 }
 
