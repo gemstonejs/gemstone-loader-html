@@ -40,6 +40,15 @@ module.exports = function (content) {
             fully deterministic and can be cached  */
         this.cacheable(true)
 
+        /*  pre-process HTML markup:
+            remove leading and trailing comments as Vue later expects a single top-level DOM element
+            NOTICE: we should not use simple non-greedy based RegEx matching for the leading stuff here, because
+                    of for large HTML files, this would result in an expontial run-time!  */
+        lexer.input(content)
+        lexer.state("head")
+        content = lexer.tokens().map((token) => token.value).join("")
+        content = content.replace(/(?:[^>]|\n)*$/, "")
+
         /*  process HTML markup  */
         let response = yield (PostHTML([
             PostHTMLBlock,
@@ -59,14 +68,6 @@ module.exports = function (content) {
             pattern: [ ".+" ],
             purge:   false
         })
-
-        /*  remove leading and trailing comments as Vue expects a single top-level DOM element
-            NOTICE: we cannot use simple non-greedy based RegEx matching for the leading stuff here, because
-                    of the content inlining before, this would result in a dramatic/expontial runtime!  */
-        lexer.input(result)
-        lexer.state("head")
-        result = lexer.tokens().map((token) => token.value).join("")
-        result = result.replace(/(?:[^>]|\n)*$/, "")
 
         /*  validate HTML template for Vue  */
         var warnings = vueValidator(result)
