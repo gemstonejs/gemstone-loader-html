@@ -16,6 +16,16 @@ const inlineAssets     = require("inline-assets")
 const vueValidator     = require("vue-template-validator")
 const vueCompiler      = require("vue-template-compiler")
 const jsBeautify       = require("js-beautify").js_beautify
+const Tokenizr         = require("tokenizr")
+
+/*  prepare a lexer for skipping initial XML comment and whitespaces  */
+const lexer = new Tokenizr()
+lexer.rule("head",    /<!--/,              (ctx, match) => { ctx.push("comment"); ctx.ignore() })
+lexer.rule("comment", /-->/,               (ctx, match) => { ctx.pop(); ctx.ignore() })
+lexer.rule("comment", /(?:[^-]+|\r?\n|.)/, (ctx, match) => { ctx.ignore() })
+lexer.rule("head",    /<[a-zA-Z]*/,        (ctx, match) => { ctx.state("body"); ctx.repeat() })
+lexer.rule("head",    /(?:[^<]+|.|\r?\n)/, (ctx, match) => { ctx.ignore() })
+lexer.rule("body",    /(?:.|\r?\n)*/,      (ctx, match) => { ctx.accept("char") })
 
 /*  the exported Webpack loader function  */
 module.exports = function (content) {
@@ -50,11 +60,13 @@ module.exports = function (content) {
             purge:   false
         })
 
-        /*  remove leading and trailing comments as
-            Vue expects a single top-level DOM element  */
-        result = result
-            .replace(/^(?:.|\n)*?(<[a-zA-Z_])/, "$1")
-            .replace(/(?:[^>]|\n)*$/, "")
+        /*  remove leading and trailing comments as Vue expects a single top-level DOM element
+            NOTICE: we cannot use simple non-greedy based RegEx matching for the leading stuff here, because
+                    of the content inlining before, this would result in a dramatic/expontial runtime!  */
+        lexer.input(result)
+        lexer.state("head")
+        result = lexer.tokens().map((token) => token.value).join("")
+        result = result.replace(/(?:[^>]|\n)*$/, "")
 
         /*  validate HTML template for Vue  */
         var warnings = vueValidator(result)
