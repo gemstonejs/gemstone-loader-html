@@ -19,13 +19,13 @@
         "url":  "http://github.com/gemstonejs/gemstone-loader-html/issues"
     },
     "devDependencies": {
-        "eslint":                         "~4.14.0",
+        "eslint":                         "~4.17.0",
         "eslint-config-standard":         "~10.2.1",
         "eslint-plugin-standard":         "~3.0.1",
         "eslint-plugin-promise":          "~3.6.0",
         "eslint-plugin-import":           "~2.8.0",
-        "eslint-plugin-node":             "~5.2.1",
-        "babel-eslint":                   "~8.1.2"
+        "eslint-plugin-node":             "~6.0.0",
+        "babel-eslint":                   "~8.2.1"
     },
     "dependencies" : {
         "co":                              "~4.6.0",
@@ -35,14 +35,14 @@
         "vue-template-compiler":           "~2.5.13",
         "vue-template-validator":          "~1.1.5",
         "parse5":                          "~3.0.3",
-        "tokenizr":                        "~1.1.7",
-        "posthtml":                        "~0.11.0",
-        "style-scope":                     "~0.9.9",
+        "tokenizr":                        "~1.2.1",
+        "posthtml":                        "~0.11.3",
+        "style-scope":                     "~0.9.10",
         "posthtml-block":                  "~1.0.1",
         "posthtml-alt-always":             "~1.0.1",
         "posthtml-md":                     "~1.1.0",
         "posthtml-lorem":                  "~1.0.0",
-        "postcss":                         "~6.0.16",
+        "postcss":                         "~6.0.18",
         "babel-runtime":                   "~6.26.0",
         "js-beautify":                     "~1.7.5"
     },
