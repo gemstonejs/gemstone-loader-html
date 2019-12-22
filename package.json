@@ -20,32 +20,32 @@
     },
     "upd": [ "!parse5" ],
     "devDependencies": {
-        "eslint":                         "5.13.0",
-        "eslint-config-standard":         "12.0.0",
-        "eslint-plugin-standard":         "4.0.0",
-        "eslint-plugin-promise":          "4.0.1",
-        "eslint-plugin-import":           "2.16.0",
-        "eslint-plugin-node":             "8.0.1",
-        "babel-eslint":                   "10.0.1"
+        "eslint":                         "6.8.0",
+        "eslint-config-standard":         "14.1.0",
+        "eslint-plugin-standard":         "4.0.1",
+        "eslint-plugin-promise":          "4.2.1",
+        "eslint-plugin-import":           "2.19.1",
+        "eslint-plugin-node":             "10.0.0",
+        "babel-eslint":                   "10.0.3"
     },
     "dependencies" : {
         "co":                             "4.6.0",
         "loader-utils":                   "1.2.3",
-        "nunjucks":                       "3.1.7",
-        "inline-assets":                  "1.4.2",
-        "vue-template-compiler":          "2.5.22",
+        "nunjucks":                       "3.2.0",
+        "inline-assets":                  "1.4.5",
+        "vue-template-compiler":          "2.6.11",
         "vue-template-validator":         "1.1.5",
         "parse5":                         "4.0.0",
-        "tokenizr":                       "1.5.2",
-        "posthtml":                       "0.11.3",
-        "style-scope":                    "0.9.16",
+        "tokenizr":                       "1.5.6",
+        "posthtml":                       "0.12.0",
+        "style-scope":                    "1.0.1",
         "posthtml-block":                 "1.0.1",
         "posthtml-alt-always":            "1.0.1",
         "posthtml-md":                    "1.1.0",
         "posthtml-lorem":                 "1.0.0",
-        "postcss":                        "7.0.14",
+        "postcss":                        "7.0.25",
         "babel-runtime":                  "6.26.0",
-        "js-beautify":                    "1.8.9"
+        "js-beautify":                    "1.10.2"
     },
     "engines": {
         "node":                           ">=7.6.0"
