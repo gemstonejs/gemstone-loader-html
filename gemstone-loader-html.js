@@ -50,7 +50,7 @@ module.exports = function (content) {
         content = content.replace(/(?:[^>]|\n)*$/, "")
 
         /*  process HTML markup  */
-        let response = yield (PostHTML([
+        const response = yield (PostHTML([
             PostHTMLBlock,
             PostHTMLScope({ rootScope: options.scope }),
             PostHTMLMarkdown(),
